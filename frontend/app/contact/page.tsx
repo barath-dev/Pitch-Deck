@@ -15,8 +15,7 @@ export default function ContactPage() {
     };
 
     return (
-    return (
-        <div className="min-h-svh bg-white dark:bg-brand-black flex flex-col items-center selection:bg-brand-red/30 transition-colors duration-300">
+        <div className="min-h-svh bg-brand-bg text-zinc-900 dark:text-white flex flex-col items-center selection:bg-brand-red/30 transition-colors duration-300">
             <Navbar />
 
             <main className="relative w-full max-w-4xl px-6 sm:px-8 py-24 flex flex-col gap-16">

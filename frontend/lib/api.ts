@@ -107,8 +107,11 @@ export interface AnalysisResponse {
 export interface ReportDetail {
     id: string;
     vertical: string;
+    created_at?: string;
+    detailed_analysis?: string;
     assumption_map: unknown[];
     blind_spots: unknown[];
+    hard_questions: unknown[];
     sharpening: unknown[];
 }
 

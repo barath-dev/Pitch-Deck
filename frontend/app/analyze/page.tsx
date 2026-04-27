@@ -8,6 +8,7 @@ import { PipelineProgress } from '@/components/analyze/PipelineProgress';
 import { ReportRedirect } from '@/components/analyze/ReportRedirect';
 import { uploadFile, submitAnalysis } from '@/lib/api';
 import UserMenu from '@/components/auth/UserMenu';
+import Navbar from '@/components/layout/Navbar';
 
 type PageState = 'idle' | 'uploading' | 'analyzing' | 'complete';
 
@@ -82,7 +83,7 @@ function AnalyzeContent() {
 
     return (
         <ProtectedRoute>
-            <div className="min-h-svh bg-white dark:bg-brand-black flex flex-col items-center selection:bg-brand-red/30 transition-colors duration-300">
+            <div className="min-h-svh bg-brand-bg text-zinc-900 dark:text-white flex flex-col items-center selection:bg-brand-red/30 transition-colors duration-300">
                 <Navbar />
 
                 {/* Main Content Area */}
@@ -204,7 +205,7 @@ function AnalyzeContent() {
 export default function AnalyzePage() {
     return (
         <Suspense fallback={
-            <div className="min-h-svh bg-white dark:bg-brand-black flex items-center justify-center transition-colors duration-300">
+            <div className="min-h-svh bg-brand-bg flex items-center justify-center transition-colors duration-300">
                 <div className="w-6 h-6 border border-brand-red bg-zinc-900 dark:bg-brand-black flex items-center justify-center rounded-sm animate-pulse">
                     <div className="w-2 h-2 bg-brand-red rounded-sm" />
                 </div>
