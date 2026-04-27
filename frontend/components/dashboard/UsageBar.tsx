@@ -48,8 +48,20 @@ export function UsageBar({ runsUsed, runsLimit, plan }: UsageBarProps) {
 
                 <div className="flex items-end gap-3 mb-4">
                     <span className="text-5xl font-serif font-black text-zinc-900 dark:text-white leading-none">{runsUsed}</span>
-                    <span className="text-lg font-sans text-zinc-400 dark:text-zinc-600 font-light leading-snug pb-1">/ {runsLimit} executed</span>
+                    <span className="text-lg font-sans text-zinc-400 dark:text-zinc-600 font-light leading-snug pb-1">
+                        / {runsLimit} total
+                    </span>
                 </div>
+
+                <p className={`text-xs font-sans font-medium tracking-wide mt-1 ${
+                    isAtLimit ? 'text-brand-red' : isWarning ? 'text-amber-500' : 'text-zinc-400 dark:text-zinc-500'
+                }`}>
+                    {isAtLimit
+                        ? 'No analyses remaining — upgrade to continue.'
+                        : isWarning
+                        ? '1 analysis remaining this period.'
+                        : `${runsLimit - runsUsed} of ${runsLimit} analyses remaining.`}
+                </p>
 
                 <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-900 overflow-hidden rounded-full">
                     <div
