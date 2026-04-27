@@ -11,4 +11,5 @@ upstash-redis
 pydantic
 python-multipart
 httpx
+asyncpg
 pytest
