@@ -26,48 +26,23 @@ export function UsageBar({ runsUsed, runsLimit, plan }: UsageBarProps) {
         );
     }
 
-    // Free plan logic
     const isAtLimit = runsUsed >= runsLimit;
-    const isWarning = runsUsed === runsLimit - 1;
-
-    let colorClass = 'bg-zinc-300 dark:bg-zinc-600';
-    if (isAtLimit) colorClass = 'bg-brand-red shadow-[0_0_15px_rgba(210,18,46,0.6)]';
-    else if (isWarning) colorClass = 'bg-brand-red/60';
-
-    const percentage = Math.min((runsUsed / runsLimit) * 100, 100);
 
     return (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-zinc-50 dark:bg-brand-black border border-zinc-200 dark:border-brand-gray p-6 rounded-luxury shadow-sm dark:shadow-2xl relative overflow-hidden group transition-colors duration-300">
-            {/* Minimalist Background Hint */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-zinc-50 dark:bg-brand-black border border-zinc-200 dark:border-brand-gray p-6 rounded-luxury shadow-sm dark:shadow-2xl relative overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 bg-linear-to-b from-zinc-200/50 dark:from-white/2 to-transparent pointer-events-none" />
 
-            <div className="flex flex-col flex-1 relative z-10">
-                <span className="text-xs font-sans font-bold text-zinc-500 uppercase tracking-[0.2em] mb-4">
-                    Analysis Requests
+            <div className="flex flex-col relative z-10">
+                <span className="text-xs font-sans font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3">
+                    Analyses Executed
                 </span>
-
-                <div className="flex items-end gap-3 mb-4">
-                    <span className="text-5xl font-serif font-black text-zinc-900 dark:text-white leading-none">{runsUsed}</span>
-                    <span className="text-lg font-sans text-zinc-400 dark:text-zinc-600 font-light leading-snug pb-1">
-                        / {runsLimit} total
+                <div className="flex items-end gap-3">
+                    <span className="text-5xl font-serif font-black text-zinc-900 dark:text-white leading-none">
+                        {runsUsed}
                     </span>
-                </div>
-
-                <p className={`text-xs font-sans font-medium tracking-wide mt-1 ${
-                    isAtLimit ? 'text-brand-red' : isWarning ? 'text-amber-500' : 'text-zinc-400 dark:text-zinc-500'
-                }`}>
-                    {isAtLimit
-                        ? 'No analyses remaining — upgrade to continue.'
-                        : isWarning
-                        ? '1 analysis remaining this period.'
-                        : `${runsLimit - runsUsed} of ${runsLimit} analyses remaining.`}
-                </p>
-
-                <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-900 overflow-hidden rounded-full">
-                    <div
-                        className={`h-full ${colorClass} transition-all duration-700 ease-[0.16,1,0.3,1]`}
-                        style={{ width: `${percentage}%` }}
-                    />
+                    <span className="text-sm font-sans text-zinc-400 dark:text-zinc-500 font-light leading-snug pb-2">
+                        pitch decks analysed
+                    </span>
                 </div>
             </div>
 
